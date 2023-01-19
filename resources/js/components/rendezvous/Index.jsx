@@ -23,6 +23,10 @@ const Rendezvous = () => {
 
                     <h2 className='text-center mb-4'>Rendez vous</h2>                    
                         
+                    <div className='bg-secondary p-2 text-white'>
+                        <h3>Lundi</h3>
+                    </div>
+
                     <table className="table table-bordered border-primary table-striped">
                         <thead>
                             <tr>
