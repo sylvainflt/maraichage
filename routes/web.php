@@ -18,3 +18,4 @@ Route::get('/jour', [\App\Http\Controllers\RendezvousController::class, 'getJour
 Route::post('/rendezvous', [\App\Http\Controllers\RendezvousController::class, 'getRendezvousToday']);
 Route::post('/jourPrecedent', [\App\Http\Controllers\RendezvousController::class, 'getJourPrecedent']);
 Route::post('/jourSuivant', [\App\Http\Controllers\RendezvousController::class, 'getJourSuivant']);
+Route::post('/ajoutRDV', [\App\Http\Controllers\RendezvousController::class, 'ajoutRDV']);

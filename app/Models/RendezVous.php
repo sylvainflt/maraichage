@@ -12,4 +12,11 @@ class RendezVous extends Model
      * @var string
      */
     protected $table = 'rendez_vous';
+
+    protected $fillable = [
+        'dateRDV',
+        'heureDebut',
+        'heureFin',
+        'Client'
+    ];
 }

@@ -93,4 +93,18 @@ class RendezvousController extends Controller
             'rendezvous' => $rendezvousToday
         ]);
     }
+
+    public function ajoutRDV(Request $request){
+          
+        $dateRDV = date('Y-m-d', strtotime($request->jour));
+
+        DB::table('rendez_vous')->insert(
+            ['dateRDV' => $dateRDV, 
+                'heureDebut' => $request->debut,
+                'heureFin' => $request->fin,
+                'Client' => $request->client
+            ]
+        );
+    }
+
 }
