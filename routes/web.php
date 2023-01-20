@@ -14,4 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [\App\Http\Controllers\RendezvousController::class, 'index']);
-Route::get('/rendezvous', [\App\Http\Controllers\RendezvousController::class, 'getRendezvous']);
+Route::get('/jour', [\App\Http\Controllers\RendezvousController::class, 'getJour']);
+Route::post('/rendezvous', [\App\Http\Controllers\RendezvousController::class, 'getRendezvousToday']);
+Route::post('/jourPrecedent', [\App\Http\Controllers\RendezvousController::class, 'getJourPrecedent']);
+Route::post('/jourSuivant', [\App\Http\Controllers\RendezvousController::class, 'getJourSuivant']);

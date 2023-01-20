@@ -3,16 +3,41 @@ import React, { useState, useEffect } from 'react';
 
 const Rendezvous = () => {
 
+    const [jour, setJour] = useState("")
     const [rendezvous, setRendezvous] = useState([])
 
     useEffect(()=>{
+        getJour()
+    },[])
+
+    useEffect(()=>{
         getRendezvous()
-    })
+    },[jour])
+
+    const getJour = async () => {
+        await axios.get("/jour")
+            .then(({data})=>{
+                setJour(data.jour)
+            })
+    }
 
     const getRendezvous = async () => {
-        await axios.get("/rendezvous")
+        await axios.post("/rendezvous",{jour})
             .then(({data})=>{
                 setRendezvous(data.rendezvous)
+            })
+    }
+
+    const jourPrecedent = async () => {                
+        await axios.post("/jourPrecedent",{jour})
+            .then(({data})=>{
+                setJour(data.jour)
+            })
+    }
+    const jourSuivant = async () => {                
+        await axios.post("/jourSuivant",{jour})
+            .then(({data})=>{
+                setJour(data.jour)
             })
     }
 
@@ -23,8 +48,10 @@ const Rendezvous = () => {
 
                     <h2 className='text-center mb-4'>Rendez vous</h2>                    
                         
-                    <div className='bg-secondary p-2 text-white'>
-                        <h3>Lundi</h3>
+                    <div className='bg-secondary p-2 text-white d-flex'>
+                        <button className='btn btn-outline-primary' onClick={jourPrecedent}>précédent</button>
+                        <h3>{jour}</h3>
+                        <button className='btn btn-outline-primary' onClick={jourSuivant}>suivant</button>
                     </div>
 
                     <table className="table table-bordered border-primary table-striped">
