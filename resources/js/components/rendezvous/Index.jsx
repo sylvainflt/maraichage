@@ -48,7 +48,7 @@ const Rendezvous = () => {
 
                     <h2 className='text-center mb-4'>Rendez vous</h2>                    
                         
-                    <div className='bg-secondary p-2 text-white d-flex'>
+                    <div className='bg-secondary p-2 text-white d-flex justify-content-between'>
                         <button className='btn btn-outline-primary' onClick={jourPrecedent}>précédent</button>
                         <h3>{jour}</h3>
                         <button className='btn btn-outline-primary' onClick={jourSuivant}>suivant</button>
